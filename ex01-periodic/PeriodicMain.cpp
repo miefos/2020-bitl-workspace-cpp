@@ -22,7 +22,7 @@ int main()
 //    string inputLine;
     while (getline(cin, inputLine)) {
 
-        cout << inputLine << endl;
+        // cout << inputLine << endl;
 
         stringstream sstr(inputLine);
 
