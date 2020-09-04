@@ -17,8 +17,6 @@ int main()
     int inputHex;
     string inputLine;
 
-    mode = "str";
-
     cin.ignore(10000,'\n');
 
 //    string inputLine;
@@ -51,6 +49,7 @@ int main()
                 sstr >> inputHex;
                 int res = periodic.findPeriodHex(inputHex);
                 cout << inputHex << " " << res << endl;
+                cout << "RESULT UP!";
 
             // invalid mode
             } else {

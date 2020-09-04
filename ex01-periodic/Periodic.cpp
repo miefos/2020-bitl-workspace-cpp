@@ -11,8 +11,6 @@
 using namespace ds_course;
 using namespace std;
 
-Periodic::Periodic() {} // empty constructor
-
 // function to find and replace all substr occurrence in a string
 void findAndReplaceAll(std::string& data, std::string toSearch, std::string replaceStr)
 {
@@ -58,6 +56,8 @@ int findRepeating(string str) {
     return 0;
 }
 
+Periodic::Periodic() {} // empty constructor
+
 // string
 int Periodic::findPeriod(std::string str) {
     return findRepeating(std::move(str)); // Should work.
@@ -65,7 +65,7 @@ int Periodic::findPeriod(std::string str) {
 
 // decimal (integer)
 int Periodic::findPeriod(int n) {
-    return findRepeating(to_string(n)); // Should work.
+    return findRepeating(to_string(n)); // should work (maybe).
 }
 
 
