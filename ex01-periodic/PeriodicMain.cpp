@@ -11,76 +11,54 @@ using namespace ds_course;
 int main()
 {
 
-    int a = 47;
-    int b = -13;
-    char c = 'c';
+    Periodic periodic;
+    string mode;
+    cin >> mode;
+    string inputString;
+    int inputDec;
+    int inputHex;
+    string inputLine;
 
-    cout << (a & b) << endl; // bitwise AND
-    cout << (a | b) << endl; // bitwise OR
-    cout << (~b) << endl; // bitwise NOT
+    cin.ignore(10000,'\n');
 
-//    int x[3] = {23, 41, 17};
-//
-//    cout << x << endl;
-//    cout << *x << endl;
-//    cout << *(x+1) << endl;
-////    cout << &*(x[0]) << endl;
-//    cout << *&(x[0]) << endl;
-//    cout << (void*)(x[0]) << endl;
-//    cout << &(x[0]) << endl;
-//    cout << x+2 << endl;
-//    cout << x+1 << endl;
-
-
-//
-//    Periodic periodic;
-//    string mode;
-//    cin >> mode;
-//    string inputString;
-//    int inputDec;
-//    int inputHex;
 //    string inputLine;
-//
-//    cin.ignore(10000,'\n');
-//
-////    string inputLine;
-//    while (getline(cin, inputLine)) {
-//
-//        cout << inputLine << endl;
-//
-//        stringstream sstr(inputLine);
-//
-//        if (sstr.peek() == '#') {
-//            continue;
-//
-//        // main procedure
-//        } else {
-//
-//            // decimal (integer)
-//            if (mode == "dec") {
-//                sstr >> inputDec;
-//                int res = periodic.findPeriod(inputDec);
-//                cout << inputDec << " " << res << endl;
-//
-//            // string
-//            } else if (mode == "str") {
-//                sstr >> inputString;
-//                int res = periodic.findPeriod(inputString);
-//                cout << inputString << " " << res << endl;
-//
-//            // hexadecimal
-//            } else if (mode == "hex") {
-//                sstr >> inputHex;
-//                int res = periodic.findPeriodHex(inputHex);
-//                cout << inputHex << " " << res << endl;
-//                cout << "RESULT UP!";
-//
-//            // invalid mode
-//            } else {
-//                cout << "Invalid mode." << endl;
-//            }
-//        }
-//    }
+    while (getline(cin, inputLine)) {
+
+        cout << inputLine << endl;
+
+        stringstream sstr(inputLine);
+
+        if (sstr.peek() == '#') {
+            continue;
+
+        // main procedure
+        } else {
+
+            // decimal (integer)
+            if (mode == "dec") {
+                sstr >> inputDec;
+                int res = periodic.findPeriod(inputDec);
+                cout << inputDec << " " << res << endl;
+
+            // string
+            } else if (mode == "str") {
+                sstr >> inputString;
+                int res = periodic.findPeriod(inputString);
+                cout << inputString << " " << res << endl;
+
+            // hexadecimal
+            } else if (mode == "hex") {
+                sstr >> inputHex;
+                int res = periodic.findPeriodHex(inputHex);
+                cout << inputHex << " " << res << endl;
+                cout << "RESULT UP!";
+
+            // invalid mode
+            } else {
+                cout << "Invalid mode." << endl;
+            }
+        }
+    }
 }
 
 
