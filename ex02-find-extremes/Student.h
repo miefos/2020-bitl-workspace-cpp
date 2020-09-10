@@ -1,0 +1,14 @@
+//
+// Created by Admin on 10.09.2020.
+//
+
+#ifndef INC_2020_BITL_WORKSPACE_CPP_STUDENT_H
+#define INC_2020_BITL_WORKSPACE_CPP_STUDENT_H
+
+
+class Student {
+
+};
+
+
+#endif //INC_2020_BITL_WORKSPACE_CPP_STUDENT_H
