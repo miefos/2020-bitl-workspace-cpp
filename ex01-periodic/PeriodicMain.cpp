@@ -2,6 +2,7 @@
 #include <string>
 #include <sstream>
 #include "Periodic.h"
+#include <bitset>
 
 using namespace std;
 using namespace ds_course;
@@ -9,6 +10,7 @@ using namespace ds_course;
 
 int main()
 {
+
     Periodic periodic;
     string mode;
     cin >> mode;
