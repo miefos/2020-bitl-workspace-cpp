@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="CidrRootsConfiguration">
+    <excludeRoots>
+      <file path="$PROJECT_DIR$/ex01-periodic/.idea" />
+      <file path="$PROJECT_DIR$/ex01-periodic/cmake-build-debug" />
+    </excludeRoots>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MakefileSettings">
     <option name="linkedExternalProjectsSettings">
@@ -11,7 +17,7 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="C:\Users\Admin\CLionProjects\bitl-workspace-cpp" />
+            <option value="C:\Users\Admin\CLionProjects\2020-bitl-workspace-cpp" />
           </set>
         </option>
         <option name="switches" value="--just-print --print-directory --keep-going" />

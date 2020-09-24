@@ -33,3 +33,5 @@
 
 *.pdb
 *.ilk
+/ex01-periodic/cmake-build-debug/
+/ex01-periodic/.idea/
