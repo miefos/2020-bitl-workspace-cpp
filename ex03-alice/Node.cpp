@@ -29,19 +29,3 @@ vector<int> Node::getChildren() {
 void Node::printPreorder() {
 
 }
-
-
-/*
-struct Node {
-private:
-    int val;
-    vector <Node> children;
-
-public:
-    Node(int vv);
-    void addChild(Node nn);
-    void reflect();
-    int getVal();
-    vector<int> getChildren();
-};
- */
