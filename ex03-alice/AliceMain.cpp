@@ -1,11 +1,29 @@
 #include <iostream>
+#include <string>
+#include <sstream>
 #include <map>
-//#include "Node.h"
+#include "Node.h"
 
-//using namespace std;
-//using namespace ds_course;
+using namespace std;
+using namespace ds_course;
 
 int main() {
+    string inputString;
+    string inputLine;
+
+    while (getline(cin, inputLine)) {
+
+        cout << inputLine << endl;
+
+        stringstream sstr(inputLine);
+
+        if (sstr.peek() == '#') {
+            continue;
+        } else {
+
+        }
+    }
+
 //    cout << "Hello" << endl;
 //    Node n1(13);
 //    cout << "Node has val = " << n1.getVal() << endl;
@@ -39,3 +57,4 @@ int main() {
 
     return 0;
 }
+
