@@ -10,18 +10,17 @@ using namespace ds_course;
 int main() {
     string inputString;
     string inputLine;
+    map<int, Node> myMap;
 
     while (getline(cin, inputLine)) {
 
-        cout << inputLine << endl;
+//        cout << inputLine << endl;
 
-        stringstream sstr(inputLine);
+//        stringstream sstr(inputLine);
 
-        if (sstr.peek() == '#') {
-            continue;
-        } else {
 
-        }
+
+
     }
 
 //    cout << "Hello" << endl;
