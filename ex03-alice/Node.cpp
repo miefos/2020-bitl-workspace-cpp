@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Node.h"
 
 using namespace ds_course;
@@ -12,12 +13,12 @@ int Node::getVal() {
     return this->val;
 }
 
-void Node::addChild(Node nn) {
+void Node::addChild(Node nodeChild) {
 
 }
 
 void Node::reflect() {
-    reverse(children.begin(), children.end());
+//    reverse(children.begin(), children.end());
     // Place your code to reverse the vector of the children
     // And also call this recursively ... all the children
 }
@@ -27,5 +28,5 @@ vector<int> Node::getChildren() {
 }
 
 void Node::printPreorder() {
-
+    cout << "Printing..:)" << endl;
 }
