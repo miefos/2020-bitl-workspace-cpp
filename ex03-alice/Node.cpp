@@ -6,15 +6,14 @@ using namespace std;
 
 Node::Node(int vv) {
     val = vv;
-//    children;
 }
 
-int Node::getVal() {
+int Node::getVal() const {
     return this->val;
 }
 
-void Node::addChild(Node nodeChild) {
-
+void Node::addChild(const Node& nodeChild) {
+    this->children.push_back(nodeChild);
 }
 
 void Node::reflect() {
@@ -24,7 +23,14 @@ void Node::reflect() {
 }
 
 vector<int> Node::getChildren() {
-    return vector<int>();
+    vector<int> childr;
+    // these two for loops are the same (IDE suggested use range based)
+//    for(auto i = this->children.begin(); i != this->children.end(); i++)
+//        childr.push_back(i->getVal());
+    for(auto & i : this->children)
+        childr.push_back(i.getVal());
+
+    return childr;
 }
 
 void Node::printPreorder() {
