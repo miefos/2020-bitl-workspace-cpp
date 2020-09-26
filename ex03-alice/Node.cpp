@@ -67,3 +67,11 @@ void Node::printPreorder() {
         myqueue.pop_front();
     }
 }
+
+void Node::setParentVal(int pval) {
+    this->parentVal =  pval;
+}
+
+int Node::getParentVal() const {
+    return this->parentVal;
+}
