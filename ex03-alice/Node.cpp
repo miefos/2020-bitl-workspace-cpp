@@ -48,9 +48,15 @@ void Node::printPreorder() {
     deque<Node*> myqueue;
     cout << this->getVal() << " ";
     vector<int> childr = this->getChildren();
+    int childr_size = childr.size();
+    int last_in_row = childr_size - 1;
 
-    for (int i = 0; i < childr.size(); i++) {
-        cout << childr.at(i) << " ";
+    for (int i = 0; i < childr_size; i++) {
+        if (i == last_in_row) {
+            cout << childr.at(i);
+        } else {
+            cout << childr.at(i) << " ";
+        }
         myqueue.push_back(this->children.at(i));
     }
 
