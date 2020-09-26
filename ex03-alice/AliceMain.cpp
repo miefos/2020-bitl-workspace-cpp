@@ -60,9 +60,9 @@ int main() {
             Node* childNode;
             if (nodes.find(s) != nodes.end()) { // child val already set (as parent)
                 childNode = nodes.find(s)->second;
-                init = getRootValue(nodes, parentVal);
                 if (childNode->getParentVal() == -1)
                     childNode->setParentVal(parentVal);
+                init = getRootValue(nodes, parentVal);
             }
             else {
                 childNode = new Node(s);
