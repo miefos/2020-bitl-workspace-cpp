@@ -27,16 +27,22 @@ int main() {
             count++;
         }
 
-        if (nodes.find(parentVal) != nodes.end())
+        if (nodes.find(parentVal) != nodes.end()) {
             parentNode = nodes.find(parentVal)->second;
-        else
-            nodes.insert(pair<int, Node*>(parentVal, parentNode = new Node(parentVal)));
+//            cout << "Case 1: parentVal is " << parentVal << endl;
+        }
+        else {
+            nodes.insert(pair<int, Node *>(parentVal, parentNode = new Node(parentVal)));
+//            cout << "Case 2: parentVal is " << parentVal << endl;
+        }
 
         // first int is taken... now all other ints are children
         for(int s; iss >> s; ) {
             Node* childNode;
-            if (nodes.find(s) != nodes.end())
+            if (nodes.find(s) != nodes.end()) {
                 childNode = nodes.find(s)->second;
+                init = parentVal;
+            }
             else
                 nodes.insert(pair<int, Node*>(s, childNode = new Node(s)));
 
