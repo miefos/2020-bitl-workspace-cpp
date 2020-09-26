@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Node.h"
 #include <deque>
+#include <algorithm>
 
 using namespace ds_course;
 using namespace std;
