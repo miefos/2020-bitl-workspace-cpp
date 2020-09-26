@@ -5,10 +5,10 @@ namespace ds_course {
     struct Node {
     private:
         int val;
-        vector<Node> children;
+        vector<Node*> children;
     public:
-        Node(int vv);
-        void addChild(const Node& nn);
+        explicit Node(int vv);
+        void addChild(Node* nn);
         void reflect();
         void printPreorder();
         int getVal() const;
