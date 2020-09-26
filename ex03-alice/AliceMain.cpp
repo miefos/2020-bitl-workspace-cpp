@@ -9,6 +9,8 @@ using namespace ds_course;
 
 int main() {
     string inputLine;
+    int init;
+    int count = 0;
     map<int, Node*> nodes;
 
     while (getline(cin, inputLine) && inputLine != "0") {
@@ -19,6 +21,11 @@ int main() {
         int parentVal;
         iss >> parentVal;
         Node* parentNode;
+
+        if (count == 0) {
+            init = parentVal;
+            count++;
+        }
 
         if (nodes.find(parentVal) != nodes.end())
             parentNode = nodes.find(parentVal)->second;
@@ -39,9 +46,7 @@ int main() {
     }
 
 
-    // only for testing
-    int parentVal = 1;
-    Node* parentNode = nodes.find(parentVal)->second;
+    Node* parentNode = nodes.find(init)->second;
     parentNode->reflect();
     parentNode->printPreorder();
 
