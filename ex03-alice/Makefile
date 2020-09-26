@@ -12,7 +12,7 @@ all: Node.o AliceMain.o
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	g++ $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
 
-test-all: test01out.txt test02out.txt test03out.txt test04out.txt test05out.txt
+test-all: test01out.txt test02out.txt test03out.txt test04out.txt test05out.txt test06out.txt test07out.txt
 
 test01out.txt: 
 	./$(EXECUTABLE) < test01in.txt > test01out.txt
@@ -33,6 +33,14 @@ test04out.txt:
 test05out.txt: 
 	./$(EXECUTABLE) < test05in.txt > test05out.txt
 	diff -i -B test05out.txt test05expected.txt
+
+test06out.txt:
+	./$(EXECUTABLE) < test06in.txt > test06out.txt
+	diff -i -B test06out.txt test06expected.txt
+
+test07out.txt:
+	./$(EXECUTABLE) < test07in.txt > test07out.txt
+	diff -i -B test07out.txt test07expected.txt
 
 # Delete dependent files
 # You can type "make clean" before committing to Git
