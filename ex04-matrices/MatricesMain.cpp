@@ -1,6 +1,8 @@
-#include <Matrix.h>
-#include <Ratio.h>
 #include <iostream>
+#include "Matrix.h"
+#include "Ratio.h"
+
+// Run g++ MatricesMain.cpp -o main.exe
 
 using namespace ds_course;
 using namespace std;
