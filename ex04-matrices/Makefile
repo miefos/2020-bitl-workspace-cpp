@@ -6,7 +6,7 @@ LDFLAGS :=
 CPPFLAGS :=
 CXXFLAGS :=
 
-all: Ratio.o Matrix.o MatricesMain.o
+all: Ratio.h Matrix.h MatricesMain.cpp
 	g++ -o $(EXECUTABLE) $^
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
