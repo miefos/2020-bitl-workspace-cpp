@@ -19,9 +19,9 @@ namespace ds_course
         int getRows();
         int getCols();
 
-        Matrix<T> operator+(const ds_course::Matrix<T> &rhs);
-        Matrix<T> operator-(const ds_course::Matrix<T> &rhs);
-        Matrix<T> operator*(const ds_course::Matrix<T> &rhs);
+        ds_course::Matrix<T> operator+(const ds_course::Matrix<T> &rhs);
+        ds_course::Matrix<T> operator-(const ds_course::Matrix<T> &rhs);
+        ds_course::Matrix<T> operator*(const ds_course::Matrix<T> &rhs);
         bool operator==(const ds_course::Matrix<T> &rhs);
 
         friend std::istream &operator>>(std::istream &input, ds_course::Matrix<T> &m)
@@ -98,7 +98,21 @@ ds_course::Matrix<T> ds_course::Matrix<T>::operator-(const ds_course::Matrix<T> 
 
 template <class T>
 ds_course::Matrix<T> ds_course::Matrix<T>::operator*(const ds_course::Matrix<T> &rhs) {
-    Matrix<T> result_matrix(rows, cols);
+    if (cols != rhs.rows)
+        throw std::out_of_range("Cannot do multiplication on matrixes (m1 cols != m2 rows)!");
+
+    Matrix<T> result_matrix(rows, rhs.cols);
+
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < rhs.cols; ++j) {
+            result_matrix.a[i][j] = 0;
+            for (int k = 0; k < cols; ++k) {
+                result_matrix.a[i][j] = result_matrix.a[i][j] + (a[i][k] * rhs.a[k][j]);
+//                std::cout << a[i][k] << "*" << rhs.a[k][j] << "=" << a[i][k]*rhs.a[k][j] << std::endl;
+//                std::cout << "result_matrix.a[i][j]=" << result_matrix.a[i][j] << " ... + a[i][k] * rhs.a[k][j] (" << a[i][k]*rhs.a[k][j] << ")" << " ... === " << result_matrix.a[i][j] + (a[i][k] * rhs.a[k][j]) << std::endl;
+            }
+        }
+    }
 
     return result_matrix;
 }
