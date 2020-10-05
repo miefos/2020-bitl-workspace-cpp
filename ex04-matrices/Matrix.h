@@ -4,6 +4,7 @@
 #include "Ratio.h"
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 namespace ds_course
 {
@@ -38,7 +39,7 @@ namespace ds_course
 
             for (int i = 0; i < rhs.rows; i++) {
                 for (int j = 0; j < rhs.cols; j++) {
-                    oStream << rhs.a[i][j];
+                    oStream << std::fixed << std::setprecision(5) << rhs.a[i][j];
                     if (j != rhs.cols - 1)
                         oStream << " ";
                 }
@@ -135,7 +136,5 @@ bool ds_course::Matrix<T>::operator==(const ds_course::Matrix<T> &rhs)
             }
     return true;
 }
-
-
 
 #endif //INC_2020_BITL_WORKSPACE_CPP_MATRIX_H

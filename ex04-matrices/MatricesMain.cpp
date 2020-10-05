@@ -103,7 +103,8 @@ int main() {
 
 //        cout << endl;
     } catch (const out_of_range& oor) {
-        cout << "out_of_range" << oor.what();
+        cout << "out_of_range";
+//        cout << "out_of_range" << oor.what();
     }
 
     return 0;
