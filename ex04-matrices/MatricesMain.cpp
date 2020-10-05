@@ -100,6 +100,8 @@ int main() {
         } else {
             throw std::out_of_range("Invalid operation!");
         }
+
+        cout << endl;
     } catch (const out_of_range& oor) {
         cout << "out_of_range" << oor.what();
     }
