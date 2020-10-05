@@ -19,6 +19,9 @@ namespace ds_course
         int getRows();
         int getCols();
 
+        Matrix<T> operator+(const ds_course::Matrix<T> &rhs);
+        Matrix<T> operator-(const ds_course::Matrix<T> &rhs);
+        Matrix<T> operator*(const ds_course::Matrix<T> &rhs);
         bool operator==(const ds_course::Matrix<T> &rhs);
 
         friend std::istream &operator>>(std::istream &input, ds_course::Matrix<T> &m)
@@ -28,6 +31,22 @@ namespace ds_course
                     input >> m.a[i][j];
                 }
             return input;
+        }
+
+        friend std::ostream& operator<< (std::ostream& oStream, const Matrix<T> rhs) {
+            oStream << rhs.rows << " " << rhs.cols << std::endl;
+
+            for (int i = 0; i < rhs.rows; i++) {
+                for (int j = 0; j < rhs.cols; j++) {
+                    oStream << rhs.a[i][j];
+                    if (j != rhs.cols - 1)
+                        oStream << " ";
+                }
+                oStream << std::endl;
+            }
+
+
+            return oStream;
         }
     };
 } // namespace ds_course
@@ -47,6 +66,42 @@ int ds_course::Matrix<T>::getRows() { return rows; }
 template <class T>
 int ds_course::Matrix<T>::getCols() { return cols; }
 
+template <class T>
+ds_course::Matrix<T> ds_course::Matrix<T>::operator+(const ds_course::Matrix<T> &rhs) {
+    if (rows != rhs.rows || cols != rhs.cols)
+        throw std::out_of_range("Cannot add matrixes (num of rows/cols differs)!");
+
+    Matrix<T> result_matrix(rows, cols);
+
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < cols; j++) {
+            result_matrix.a[i][j] = a[i][j] + rhs.a[i][j];
+        }
+
+    return result_matrix;
+}
+
+template <class T>
+ds_course::Matrix<T> ds_course::Matrix<T>::operator-(const ds_course::Matrix<T> &rhs) {
+    if (rows != rhs.rows || cols != rhs.cols)
+        throw std::out_of_range("Cannot add matrixes (num of rows/cols differs)!");
+
+    Matrix<T> result_matrix(rows, cols);
+
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < cols; j++) {
+            result_matrix.a[i][j] = a[i][j] * rhs.a[i][j];
+        }
+
+    return result_matrix;
+}
+
+template <class T>
+ds_course::Matrix<T> ds_course::Matrix<T>::operator*(const ds_course::Matrix<T> &rhs) {
+    Matrix<T> result_matrix(rows, cols);
+
+    return result_matrix;
+}
 
 template <class T>
 bool ds_course::Matrix<T>::operator==(const ds_course::Matrix<T> &rhs)
