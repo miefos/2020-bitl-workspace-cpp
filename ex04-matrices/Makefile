@@ -15,32 +15,32 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 test-all: test01out.txt test02out.txt test03out.txt test04out.txt test05out.txt test06out.txt test07out.txt
 
 test01out.txt:
-	./$(EXECUTABLE) < test01in.txt > test01out.txt
-	diff -i -B test01out.txt test01expected.txt
+	./$(EXECUTABLE) < test1in.txt > test1out.txt
+	diff -i -B test1out.txt test1expected.txt
 
 test02out.txt:
-	./$(EXECUTABLE) < test02in.txt > test02out.txt
-	diff -i -B test02out.txt test02expected.txt
+	./$(EXECUTABLE) < test2in.txt > test2out.txt
+	diff -i -B test2out.txt test2expected.txt
 
 test03out.txt:
-	./$(EXECUTABLE) < test03in.txt > test03out.txt
-	diff -i -B test03out.txt test03expected.txt
+	./$(EXECUTABLE) < test3in.txt > test3out.txt
+	diff -i -B test3out.txt test3expected.txt
 
 test04out.txt:
-	./$(EXECUTABLE) < test04in.txt > test04out.txt
-	diff -i -B test04out.txt test04expected.txt
+	./$(EXECUTABLE) < test4in.txt > test4out.txt
+	diff -i -B test4out.txt test4expected.txt
 
 test05out.txt:
-	./$(EXECUTABLE) < test05in.txt > test05out.txt
-	diff -i -B test05out.txt test05expected.txt
+	./$(EXECUTABLE) < test5in.txt > test5out.txt
+	diff -i -B test5out.txt test5expected.txt
 
 test06out.txt:
-	./$(EXECUTABLE) < test06in.txt > test06out.txt
-	diff -i -B test06out.txt test06expected.txt
+	./$(EXECUTABLE) < test6in.txt > test6out.txt
+	diff -i -B test6out.txt test6expected.txt
 
 test07out.txt:
-	./$(EXECUTABLE) < test07in.txt > test07out.txt
-	diff -i -B test07out.txt test07expected.txt
+	./$(EXECUTABLE) < test7in.txt > test7out.txt
+	diff -i -B test7out.txt test7expected.txt
 
 # Delete dependent files
 # You can type "make clean" before committing to Git
