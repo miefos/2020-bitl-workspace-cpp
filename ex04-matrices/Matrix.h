@@ -42,7 +42,8 @@ namespace ds_course
                     if (j != rhs.cols - 1)
                         oStream << " ";
                 }
-                oStream << std::endl;
+                if (i != rhs.rows - 1)
+                    oStream << std::endl;
             }
 
 
