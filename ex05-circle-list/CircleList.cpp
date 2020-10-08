@@ -73,7 +73,7 @@ int CircleList::getSize() {
     return size;
 };
 
-std::string CircleList::to_str() {
+string CircleList::to_str() {
   string list_str;
 
   for (int i = 0; i < size; i++) {
