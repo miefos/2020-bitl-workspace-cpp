@@ -69,7 +69,7 @@ try {
     delete clist;
 
   } catch (OutOfBoundsException e) {
-    cout << e.getMessage() << endl;
+    cout << e.getMessage();
   }
 
   return 0;
