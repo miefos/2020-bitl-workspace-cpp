@@ -64,10 +64,10 @@ try {
     }
 
     // display list
-    cout << clist->to_str() << endl;
-
+    cout << clist->to_str();
 
     delete clist;
+
   } catch (OutOfBoundsException e) {
     cout << e.getMessage() << endl;
   }
