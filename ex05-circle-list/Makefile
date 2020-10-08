@@ -6,7 +6,7 @@ LDFLAGS :=
 CPPFLAGS :=
 CXXFLAGS :=
 
-all: CNode.h CircleList.h OutOfBoundsException.cpp CircleListMain.cpp
+all: CNode.cpp CircleList.cpp OutOfBoundsException.cpp CircleListMain.cpp
 	g++ -o $(EXECUTABLE) $^
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
