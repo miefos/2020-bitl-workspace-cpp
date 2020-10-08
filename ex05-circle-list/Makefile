@@ -2,7 +2,7 @@ EXECUTABLE := ex05circlelist
 CATCH2_RUNNER := Catch2TestRunner
 SRC_DIR := .
 OBJ_DIR := .
-LDFLAGS := 
+LDFLAGS :=
 CPPFLAGS :=
 CXXFLAGS :=
 
@@ -11,10 +11,8 @@ all: CircleList.o CircleListMain.o
 	g++ -o $(EXECUTABLE) $^
 
 # Compile into an obj file
-CircleListMain.o: CircleList.cpp
+	$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	g++ $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
-#$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-#	g++ $(CPPFLAGS) $(CXXFLAGS) -c -o $@ $<
 
 
 # Delete dependent files
