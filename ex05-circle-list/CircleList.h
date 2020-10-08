@@ -21,7 +21,7 @@ namespace ds_course {
         void advance();
         void retreat();
         int getSize();
-        std::string to_str() const;
+        std::string to_str();
 
     };
 }

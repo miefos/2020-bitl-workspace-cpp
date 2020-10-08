@@ -37,9 +37,9 @@ void CircleList::add(const int &e) {
     v->prev = v;
     cursor = v;
   } else {
-    if (size == 1) 
+    if (size == 1)
       cursor->prev = v;
-    else 
+    else
       cursor->next->prev = v;
     v->next = cursor->next;
     v->prev = cursor;
@@ -51,7 +51,7 @@ void CircleList::add(const int &e) {
 
 void CircleList::remove() {
   CNode* old = cursor->next;
-  if (old == cursor) 
+  if (old == cursor)
     cursor = NULL;
   else {
     cursor->next = old->next;
@@ -73,7 +73,15 @@ int CircleList::getSize() {
     return size;
 };
 
-std::string CircleList::to_str() const {
-    // todo
-    return "";
+std::string CircleList::to_str() {
+  string list_str;
+
+  for (int i = 0; i < size; i++) {
+    list_str.append(to_string(this->back()));
+    if (i != size - 1)
+      list_str.append(" ");
+    this->retreat();
+  }
+
+  return list_str;
 };

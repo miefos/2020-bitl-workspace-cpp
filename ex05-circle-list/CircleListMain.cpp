@@ -68,14 +68,8 @@ int main() {
   }
 
   // display list
-  list_size = clist->getSize();
+  cout << clist->to_str() << endl;
 
-  for (int i = 0; i < list_size; i++) {
-    cout << clist->back() << " ";
-    clist->retreat();
-  }
-
-  cout << endl;
 
   delete clist;
 
