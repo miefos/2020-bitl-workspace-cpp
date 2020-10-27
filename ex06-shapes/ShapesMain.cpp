@@ -96,7 +96,7 @@ int main() {
             int height = stoi(tokens[2]);
 
             ofstream output_file_svg;
-            output_file_svg.open("test1out.svg");
+            output_file_svg.open("output.svg");
             output_file_svg <<
                     R"(<?xml version="1.0" encoding="UTF-8"?>)" << endl <<
                     R"(<svg xmlns="http://www.w3.org/2000/svg" width=")" << width << R"(" height=")" << height << "\">" << endl <<
@@ -104,6 +104,13 @@ int main() {
                     svg_part << endl <<
                     R"(<rect x="0" y="0" width=")" << width << R"(" height=")" << height << R"(" stroke="#999999" fill="none" stroke-width="1"/>)" << endl <<
                     "</svg>";
+            cout <<
+                            R"(<?xml version="1.0" encoding="UTF-8"?>)" << endl <<
+                            R"(<svg xmlns="http://www.w3.org/2000/svg" width=")" << width << R"(" height=")" << height << "\">" << endl <<
+                            "<path d=\"M 0 0 L" << width << " 0 L" << width << " " << height << " L 0 " << height << "\" fill=\"#cccccc\"/>" << endl <<
+                            svg_part << endl <<
+                            R"(<rect x="0" y="0" width=")" << width << R"(" height=")" << height << R"(" stroke="#999999" fill="none" stroke-width="1"/>)" << endl <<
+                            "</svg>";
             output_file_svg.close();
             return 0;
         } else {
