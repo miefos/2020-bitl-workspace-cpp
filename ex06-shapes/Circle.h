@@ -12,10 +12,6 @@ namespace ds_course {
         std::string draw(); // return SVG
         void transform(Matrix<double> m);
         Shape* clone();
-    private:
-        int n;
-        std::string color;
-        Matrix<double>** points;
     };
 }
 

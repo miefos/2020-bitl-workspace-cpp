@@ -11,6 +11,9 @@ namespace ds_course {
         virtual std::string draw() = 0; // output SVG
         virtual void transform(Matrix<double> m) = 0;
         virtual Shape* clone() = 0;
+        int n;
+        std::string color;
+        Matrix<double>* points[1000];
     };
 }
 
