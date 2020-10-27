@@ -2,10 +2,12 @@
 
 #define MC_MAX_SHAPES 1000
 
+using namespace std;
+
 namespace ds_course {
 
     ShapeStack::ShapeStack() {
-        top_elem = 0;
+        _size = 0;
         iterCursor = 0;
     }
 
@@ -14,7 +16,7 @@ namespace ds_course {
     }
 
     int ShapeStack::size() {
-        return top_elem;
+        return _size;
     }
 
     bool ShapeStack::empty() {
@@ -22,17 +24,23 @@ namespace ds_course {
     }
 
     Shape *ShapeStack::top() {
-        return shapes[top_elem];
+        if (_size-1 < 0)
+            return nullptr;
+        return shapes[_size-1];
     }
 
     void ShapeStack::push(Shape *sh) {
-        shapes[top_elem+1] = sh;
-        top_elem++;
+//        cout << "COL received in push " << sh->color << endl;
+        shapes[_size] = sh;
+//        cout << "COL assigned in push " << shapes[_size+1]->color << endl;
+        _size++;
     }
 
     void ShapeStack::pop() {
-        shapes[top_elem] = nullptr;
-        top_elem--;
+        if (_size - 1 >= 0) {
+            shapes[_size - 1] = nullptr;
+            _size--;
+        }
     }
 
     void ShapeStack::iterReset() {
@@ -40,8 +48,8 @@ namespace ds_course {
     }
 
     bool ShapeStack::iterHasNext() {
-        if (iterCursor + 1 < MC_MAX_SHAPES)
-            if (shapes[iterCursor + 1] != nullptr)
+        if (iterCursor < MC_MAX_SHAPES)
+            if (shapes[iterCursor] != nullptr)
                 return true;
         return false;
     }
@@ -49,7 +57,7 @@ namespace ds_course {
     Shape *ShapeStack::iterNext() {
         if (iterHasNext()) {
             iterCursor++;
-            return shapes[iterCursor];
+            return shapes[iterCursor-1];
         }
         return nullptr;
     }

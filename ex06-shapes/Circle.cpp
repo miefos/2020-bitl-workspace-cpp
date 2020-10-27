@@ -6,6 +6,7 @@
 
 ds_course::Circle::Circle(std::string color) {
     this->color = std::move(color);
+    this->type = "Circle";
     this->n = 1000;
     double angle = 2*M_PI/n;
 
@@ -22,14 +23,13 @@ ds_course::Circle::~Circle() {
 
 }
 
-std::string ds_course::Circle::draw() {
-    return Transformation::getDrawing(n, color, points);
-}
-
-void ds_course::Circle::transform(ds_course::Matrix<double> m) {
-
-}
-
 ds_course::Shape *ds_course::Circle::clone() {
-    return nullptr;
+    Shape* new_shape = new Circle(color);
+    for (int i = 0; i < n; i++) {
+        new_shape->points[i]->a[0][0] = points[i]->a[0][0];
+        new_shape->points[i]->a[0][1] = points[i]->a[0][1];
+    }
+    new_shape->type = type;
+
+    return new_shape;
 }

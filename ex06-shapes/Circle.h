@@ -9,8 +9,6 @@ namespace ds_course {
     public:
         Circle(std::string color);
         ~Circle();
-        std::string draw(); // return SVG
-        void transform(Matrix<double> m);
         Shape* clone();
     };
 }

@@ -9,8 +9,6 @@ namespace ds_course {
     public:
         Polygon(std::string color, int n);
         ~Polygon();
-        std::string draw(); // return SVG
-        void transform(Matrix<double> m);
         Shape* clone();
     };
 }

@@ -21,6 +21,7 @@ using namespace std;
 int main() {
     ShapeStack stack;
     string Line;
+
     while (getline(cin, Line)) {
         // parse by space
         istringstream iss(Line);
@@ -44,76 +45,25 @@ int main() {
             if (tokens[1] == "ROT" && tokens.size() == 3) {
                 double degrees = stod(tokens[2]);
                 Matrix<double> mm = Transformation::getROT(M_PI*degrees/180);
-                Matrix<double> vv(3,1); // column vector has 3 rows, 1 column
-                Shape* theShape = stack.top();
-                // loop throuh all points
-                for (int i = 0; i < theShape->n; i++) {
-                    vv.a[0][0] = theShape->points[i]->a[0][0]; // old x
-                    vv.a[1][0] = theShape->points[i]->a[0][1]; // old y
-                    vv.a[2][0] = 1; // always 1
-                    Matrix<double> ww = mm*vv;
-                    double new_x = ww.a[0][0];
-                    double new_y = ww.a[1][0];
-                    theShape->points[i]->a[0][0] = new_x;
-                    theShape->points[i]->a[0][1] = new_y;
-                }
+                stack.top()->transform(mm);
             } else if (tokens.size() == 4) {
                 // TRANSF SCA 1.4142135 1.4143135
                 if (tokens[1] == "SCA") {
                     double cx = stod(tokens[2]);
                     double cy = stod(tokens[3]);
                     Matrix<double> mm = Transformation::getSCA(cx, cy);
-                    Matrix<double> vv(3,1); // column vector has 3 rows, 1 column
-                    Shape* theShape = stack.top();
-                    // loop throuh all points
-                    for (int i = 0; i < theShape->n; i++) {
-                        vv.a[0][0] = theShape->points[i]->a[0][0]; // old x
-                        vv.a[1][0] = theShape->points[i]->a[0][1]; // old y
-                        vv.a[2][0] = 1; // always 1
-                        Matrix<double> ww = mm*vv;
-                        double new_x = ww.a[0][0];
-                        double new_y = ww.a[1][0];
-                        theShape->points[i]->a[0][0] = new_x;
-                        theShape->points[i]->a[0][1] = new_y;
-                    }
-
+                    stack.top()->transform(mm);
                 // TRANSF TRA 150 100
                 } else if (tokens[1] == "TRA") {
                     double cx = stod(tokens[2]);
                     double cy = stod(tokens[3]);
                     Matrix<double> mm = Transformation::getTRA(cx, cy);
-                    Matrix<double> vv(3,1); // column vector has 3 rows, 1 column
-                    Shape* theShape = stack.top();
-                    // loop throuh all points
-                    for (int i = 0; i < theShape->n; i++) {
-                        vv.a[0][0] = theShape->points[i]->a[0][0]; // old x
-                        vv.a[1][0] = theShape->points[i]->a[0][1]; // old y
-                        vv.a[2][0] = 1; // always 1
-                        Matrix<double> ww = mm*vv;
-                        double new_x = ww.a[0][0];
-                        double new_y = ww.a[1][0];
-                        theShape->points[i]->a[0][0] = new_x;
-                        theShape->points[i]->a[0][1] = new_y;
-                    }
-
+                    stack.top()->transform(mm);
                 } else if (tokens[1] == "SHA") {
                     double cx = stod(tokens[2]);
                     double cy = stod(tokens[3]);
                     Matrix<double> mm = Transformation::getSHA(cx, cy);
-                    Matrix<double> vv(3,1); // column vector has 3 rows, 1 column
-                    Shape* theShape = stack.top();
-                    // loop throuh all points
-                    for (int i = 0; i < theShape->n; i++) {
-                        vv.a[0][0] = theShape->points[i]->a[0][0]; // old x
-                        vv.a[1][0] = theShape->points[i]->a[0][1]; // old y
-                        vv.a[2][0] = 1; // always 1
-                        Matrix<double> ww = mm*vv;
-                        double new_x = ww.a[0][0];
-                        double new_y = ww.a[1][0];
-                        theShape->points[i]->a[0][0] = new_x;
-                        theShape->points[i]->a[0][1] = new_y;
-                    }
-
+                    stack.top()->transform(mm);
                 } else {
                     cout << "[ERROR] Transformation not recognized." << endl;
                     return -1;
@@ -134,20 +84,13 @@ int main() {
                 Shape* shp = stack.top();
                 stack.pop();
                 grouped_stack.push(shp);
+//                for (int j = 0; j < grouped_stack.size(); j++)
+//                    cout << j << " " << grouped_stack.shapes[i]->color << endl;
+//                cout << endl;
             }
             stack.push(new Group(grouped_stack));
         // SHOW 200 300
         } else if (cmd == "SHOW" && tokens.size() == 3) {
-            // output s.top().draw() (surround with a few more SVG lines)
-            //<?xml version="1.0" encoding="UTF-8"?>
-            //<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
-            //<path d="M 0 0 L 100 0 L 100 100 L 0 100" fill="#cccccc"/>
-            //<path d="M 100 50 L 50 0 L 0 50 L 50 100" fill="#0000ff"/>
-            //<path d="M 100 50 L 25 93.3 L 25 6.7" fill="#ff0000"/>
-            //<rect x="0" y="0" width="100" height="100"
-            //stroke="#999999" fill="none" stroke-width="1"/>
-            //</svg>
-
             string svg_part = stack.top()->draw();
             int width = stoi(tokens[1]);
             int height = stoi(tokens[2]);
@@ -164,10 +107,9 @@ int main() {
             output_file_svg.close();
             return 0;
         } else {
-            cout << "[ERROR] Command not recognized." << endl;
+            cout << "[ERROR] Command not recognized: " << cmd << endl;
             return -1;
         }
-//        cout << Line << endl;
     }
 
     return 0;

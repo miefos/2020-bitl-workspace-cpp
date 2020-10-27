@@ -11,11 +11,11 @@ namespace ds_course {
     private:
         ShapeStack stack;
     public:
-        Group(ShapeStack stack);
+        explicit Group(ShapeStack stack);
         ~Group();
-        std::string draw(); // output SVG
-        void transform(Matrix<double> m);
-        Shape* clone();
+        std::string draw() override; // output SVG
+        void transform(Matrix<double> m) override;
+        Shape* clone() override;
     };
 }
 

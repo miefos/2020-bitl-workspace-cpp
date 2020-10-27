@@ -13,13 +13,13 @@ namespace ds_course {
         Shape* top();
         void push(Shape* sh);
         void pop();
-    private:
-        int top_elem;
-        Shape* shapes[1000];
-        int iterCursor;
-        void iterReset();
         bool iterHasNext();
+        void iterReset();
         Shape* iterNext();
+        Shape* shapes[1000];
+    private:
+        int _size;
+        int iterCursor;
     };
 }
 
