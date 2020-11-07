@@ -10,11 +10,17 @@ namespace ds_course {
         BinaryTree();
         ~BinaryTree();
 
-        void insert(int key); // also validates that can be inserted
-        Alien *search(int key); // returns nullptr if no exist
+        bool rootInserted;
+        BinaryTree* next;
+
+//        void insert(int parent, int key, char pos);
+        Alien *search(int key, Alien* current); // returns nullptr if no exist
         void merge_trees(BinaryTree* bt);
         void destroy_tree();
         std::string getFavRelatives(int key);
+        void displayTree();
+        Alien* getRoot();
+        void setRoot(int nn);
 
     private:
         Alien *root;

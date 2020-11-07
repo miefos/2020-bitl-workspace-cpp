@@ -5,10 +5,19 @@ namespace ds_course {
     class Alien {
     private:
         int num;
+        Alien* right;
+        Alien* left;
+        Alien* parent;
     public:
-        Alien(int nn);
+        explicit Alien(int nn);
         ~Alien();
         int getNum();
+        Alien* getRight();
+        Alien* getLeft();
+        Alien* getParent();
+        void setParent(Alien* al);
+        void setRight(int key);
+        void setLeft(int key);
 
     };
 }
