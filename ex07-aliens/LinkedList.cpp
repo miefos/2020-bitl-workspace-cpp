@@ -138,45 +138,67 @@ void ds_course::LinkedList::inorderPrint(ds_course::Alien* root) {
 }
 
 // function name not descriptive
-void ds_course::LinkedList::inorder(ds_course::Alien *root, int* result, int previous) {
+int ds_course::LinkedList::inorder(ds_course::Alien *root, int* result, int previous) {
     ds_course::Alien* tmp;
-    if (root->getLeft() == nullptr)
-        if (root->getParent() != nullptr) {
-            if (root->getParent()->getRight() != nullptr && root->getParent()->getRight()->getNum() == root->getNum())
-                *result = root->getParent()->getNum();
-            else
-                *result = 0;
-        } else {
-            *result = 0;
+    if (root->getLeft() == nullptr) {
+        Alien *par_tmp = root->getParent();
+        Alien *root_tmp = root;
+        while (par_tmp != nullptr) {
+            Alien *lchild;
+            if ((lchild = par_tmp->getRight()) != nullptr &&
+                lchild->getNum() == root_tmp->getNum()) {
+                *result = par_tmp->getNum();
+                return 0;
+            }
+
+            root_tmp = root_tmp->getParent();
+            par_tmp = par_tmp->getParent();
         }
-    else {
+
+        *result = 0;
+        return 0;
+    } else {
         tmp = root->getLeft();
         while (tmp->getRight() != nullptr) {
             tmp = tmp->getRight();
         }
         *result = tmp->getNum();
+        return 0;
     }
+
+    return -1;
 }
 
 // function name not descriptive
-void ds_course::LinkedList::inorder2(ds_course::Alien *root, int* result, int previous) {
+int ds_course::LinkedList::inorder2(ds_course::Alien *root, int* result, int previous) {
     ds_course::Alien* tmp;
-    if (root->getRight() == nullptr) // no next
-        if (root->getParent() != nullptr) {
-            if (root->getParent()->getLeft() != nullptr && root->getParent()->getLeft()->getNum() == root->getNum())
-                *result = root->getParent()->getNum();
-            else
-                *result = 0;
-        } else {
-            *result = 0;
+    if (root->getRight() == nullptr) {
+        Alien *par_tmp = root->getParent();
+        Alien *root_tmp = root;
+        while (par_tmp != nullptr) {
+            Alien *lchild;
+            if ((lchild = par_tmp->getLeft()) != nullptr &&
+                lchild->getNum() == root_tmp->getNum()) {
+                *result = par_tmp->getNum();
+                return 0;
+            }
+
+            root_tmp = root_tmp->getParent();
+            par_tmp = par_tmp->getParent();
         }
-    else {
-            tmp = root->getRight();
+
+        *result = 0;
+        return 0;
+    } else {
+        tmp = root->getRight();
         while (tmp->getLeft() != nullptr) {
             tmp = tmp->getLeft();
         }
         *result = tmp->getNum();
+        return 0;
     }
+
+    return -1;
 }
 
 int ds_course::LinkedList::findFavorites(int key) {

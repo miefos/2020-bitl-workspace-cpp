@@ -14,8 +14,8 @@ namespace ds_course {
         int insertAlien(int parentKey, int childKey, char pos); // insert element
         Alien* searchAlienInAllTrees(int key);
         int findFavorites(int key);
-        void inorder(ds_course::Alien *root, int *next, int previous);
-        void inorder2(ds_course::Alien *root, int *next, int previous);
+        int inorder(ds_course::Alien *root, int *next, int previous);
+        int inorder2(ds_course::Alien *root, int *next, int previous);
         void inorderPrint(ds_course::Alien *root);
 
     private:
