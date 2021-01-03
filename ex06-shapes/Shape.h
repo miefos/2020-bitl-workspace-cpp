@@ -2,8 +2,8 @@
 #define EX06_SHAPES_SHAPE_H
 
 #include <string>
-#include <Matrix.h>
-#include <Transformation.h>
+#include "Matrix.h"
+#include "Transformation.h"
 
 // Shape is purely virtual
 namespace ds_course {

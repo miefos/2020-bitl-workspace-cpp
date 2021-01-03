@@ -1,8 +1,8 @@
 #ifndef EX06_SHAPES_CIRCLE_H
 #define EX06_SHAPES_CIRCLE_H
 
-#include <Shape.h>
-#include <Matrix.h>
+#include "Shape.h"
+#include "Matrix.h"
 
 namespace ds_course {
     class Circle: public Shape {

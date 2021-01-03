@@ -1,11 +1,12 @@
 #ifndef EX06_SHAPES_TRANSFORMATION_H
 #define EX06_SHAPES_TRANSFORMATION_H
 
-#include <Matrix.h>
+#include "Matrix.h"
 #include <cmath>
 #include <sstream>
-#define M_PI acos(-1.0)
-
+#ifndef M_PI
+    #define M_PI acos(-1.0)
+#endif
 namespace ds_course {
     class Transformation {
     public:

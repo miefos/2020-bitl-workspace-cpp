@@ -6,12 +6,12 @@
 #include <iterator>
 #include <vector>
 
-#include <Shape.h>
-#include <Circle.h>
-#include <Polygon.h>
-#include <Transformation.h>
-#include <ShapeStack.h>
-#include <Group.h>
+#include "Shape.h"
+#include "Circle.h"
+#include "Polygon.h"
+#include "Transformation.h"
+#include "ShapeStack.h"
+#include "Group.h"
 
 using namespace ds_course;
 using namespace std;

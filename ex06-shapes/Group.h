@@ -1,9 +1,9 @@
 #ifndef EX06_SHAPES_GROUP_H
 #define EX06_SHAPES_GROUP_H
 
-#include <ShapeStack.h>
-#include <Matrix.h>
-#include <Shape.h>
+#include "ShapeStack.h"
+#include "Matrix.h"
+#include "Shape.h"
 #include <iostream>
 
 namespace ds_course {

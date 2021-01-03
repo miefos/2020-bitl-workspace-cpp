@@ -1,7 +1,7 @@
 #include <string>
 #include <sstream>
 #include <iostream>
-#include <Node.h>
+#include "Node.h"
 
 #define MAX_WORDS_PER_LINE 100
 #define MAX_WORD_SIZE 30

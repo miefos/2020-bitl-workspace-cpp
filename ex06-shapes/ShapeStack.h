@@ -1,7 +1,7 @@
 #ifndef EX06_SHAPES_SHAPESTACK_H
 #define EX06_SHAPES_SHAPESTACK_H
 
-#include <Shape.h>
+#include "Shape.h"
 
 namespace ds_course {
     class ShapeStack {
